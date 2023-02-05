@@ -1,5 +1,5 @@
 require('dotenv').config()
-
+require('express-async-errors')
 
 const express = require('express');
 const app = express()
@@ -21,7 +21,7 @@ app.get('/',(req, res) => {
 
 // products route
 
-app.use('/api/vi/products', productsRouter )
+app.use('/api/v1/products', productsRouter )
 
 app.use(notFoundMiddleware)
 app.use(errorMiddleware)
