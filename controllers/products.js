@@ -1,5 +1,8 @@
+const Product = require('../models/product')
+
 const getAllProductsStatic = async (req, res) => {
-  res.status(200).json({msg: 'products testing route'})
+  const products = await Product.find({company:'ikea', name: "shelf"})
+  res.status(200).json({products, nbHits: products.length})
   throw new Error('something went wrong!')
 }
 
